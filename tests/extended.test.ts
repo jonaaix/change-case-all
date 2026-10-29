@@ -1,4 +1,5 @@
 import {
+   Case,
    isLowerCase,
    isUpperCase,
    localeLowerCase,
@@ -46,6 +47,13 @@ describe('The extended modules of change-case', () => {
    it('should titleCase the expression', () => {
       expect(titleCase).toBeDefined();
       expect(titleCase(expression)).toEqual('MyName-Is_peter Parker__and--I-amCool');
+   });
+
+   it('should not corrupt subsequent titleCase calls after a failed call', () => {
+      expect(() => titleCase(null as unknown as string)).toThrow(TypeError);
+      expect(titleCase('hello world')).toEqual('Hello World');
+      expect(() => Case.title(undefined as unknown as string)).toThrow(TypeError);
+      expect(Case.title('hello world')).toEqual('Hello World');
    });
 
    it('should upperCase the expression', () => {
