@@ -41,9 +41,9 @@
       "constant-case"
    ],
    "dependencies": {
-      "change-case": "^5.2.0",
-      "sponge-case": "^2.0.2",
-      "swap-case": "^3.0.2",
+      "change-case": "^5.4.4",
+      "sponge-case": "^2.0.3",
+      "swap-case": "^3.0.3",
       "title-case": "^3.0.3"
    },
    "devDependencies": {
