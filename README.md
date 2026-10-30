@@ -1,6 +1,6 @@
 # change-case-all
 
-![CI](https://github.com/btxtiger/change-case-all/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/jonaaix/change-case-all/actions/workflows/ci.yml/badge.svg)
 [![npm](https://img.shields.io/npm/v/change-case-all.svg)](https://www.npmjs.com/package/change-case-all)
 [![npm](https://img.shields.io/npm/dm/change-case-all.svg)](https://www.npmjs.com/package/change-case-all)
 [![npm](https://img.shields.io/librariesio/release/npm/change-case-all)](https://www.npmjs.com/package/change-case-all)
@@ -41,6 +41,12 @@ const snake = snakeCase('fooBar'); // foo_bar
 ```
 
 ## Changelog
+
+### 2.2.0
+- Updated dependencies to `change-case@5.4.4`: the `suffixCharacters` and `split` options now work (previously ignored by the bundled `5.2.0`, although already offered by the types)
+- Fixed `titleCase` returning corrupted results after a call with non-string input (e.g. `titleCase(null)` followed by `titleCase('hello world')` returned `O World`)
+- `TitleCase` kept at `3.0.3`, as `4.x` changes the output of many inputs (e.g. `iPhone` &rarr; `IPhone`)
+- Updated build tooling, browser/runtime support of the bundles is unchanged
 
 ### 2.1.0
 - Bundle dependencies in module to support Node.js
