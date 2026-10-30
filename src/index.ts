@@ -24,7 +24,17 @@ export const kebabCase = changeCase1.kebabCase;
 
 export const spongeCase = spongeCase1.spongeCase;
 export const swapCase = swapCase1.swapCase;
-export const titleCase = titleCase1.titleCase;
+// title-case@3 iterates with a module-level global regex. If a call throws mid-loop (non-string input),
+// its lastIndex is left behind and corrupts the next call ('hello world' -> 'O World').
+// Calling it with '' resets lastIndex; the original error is rethrown unchanged.
+export const titleCase = (input: string): string => {
+   try {
+      return titleCase1.titleCase(input);
+   } catch (error) {
+      titleCase1.titleCase('');
+      throw error;
+   }
+};
 
 export const upperCase = (str: string) => str.toUpperCase();
 export const localeUpperCase = (str: string, locales?: string | string[]) => str.toLocaleUpperCase(locales);
